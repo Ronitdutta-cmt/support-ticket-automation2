@@ -1,0 +1,31 @@
+id,message,expected_category,split
+TKT-001,I was charged twice for my monthly subscription,Billing,train
+TKT-002,Please refund the payment taken after cancellation,Billing,train
+TKT-003,The invoice total does not match the amount paid,Billing,train
+TKT-004,My billing address needs to be corrected,Billing,train
+TKT-005,Can you explain the late fee on my statement,Billing,train
+TKT-006,The mobile app crashes when I open the settings page,Technical,train
+TKT-007,Uploading a receipt returns an error,Technical,train
+TKT-008,The search feature is not working this morning,Technical,train
+TKT-009,A bug prevents me from exporting my records,Technical,train
+TKT-010,The page loads slowly after the latest update,Technical,train
+TKT-011,I cannot sign in because my password is rejected,Access,train
+TKT-012,Please help me regain access to my account,Access,train
+TKT-013,The login screen will not accept my credentials,Access,train
+TKT-014,I need to reset the password for my profile,Access,train
+TKT-015,My account is locked after several sign-in attempts,Access,train
+TKT-016,What time does your support desk close,General,train
+TKT-017,Please send me information about your service plans,General,train
+TKT-018,I would like to share feedback about the new layout,General,train
+TKT-019,Where can I find your privacy policy,General,train
+TKT-020,Please update the display name on my profile,General,train
+TKT-021,I need help understanding a recent charge on my card,Billing,test
+TKT-022,Please reverse the duplicate invoice payment,Billing,test
+TKT-023,My latest bill includes a fee I do not recognize,Billing,test
+TKT-024,The dashboard freezes whenever I open reports,Technical,test
+TKT-025,File upload fails with an error every time,Technical,test
+TKT-026,The application crashes when I submit the support form,Technical,test
+TKT-027,I cannot sign in after resetting my password,Access,test
+TKT-028,The two-factor code is rejected and blocks me from logging in,Access,test
+TKT-029,Can you explain your weekend support hours,General,test
+TKT-030,I would like to leave feedback about the new help center,General,test
