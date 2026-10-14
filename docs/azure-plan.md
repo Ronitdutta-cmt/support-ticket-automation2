@@ -1,8 +1,8 @@
-\# Azure Deployment Plan — PS04
+﻿# Azure Deployment Plan — PS04
 
 
 
-\## 1. Overview
+## 1. Overview
 
 
 
@@ -10,43 +10,43 @@ This project implements a support-ticket automation REST API using Java 17 and S
 
 
 
-\## 2. Proposed Architecture
+## 2. Proposed Architecture
 
 
 
-\- \*\*Azure App Service:\*\* Hosts the Spring Boot application as a Linux custom container.
+- **Azure App Service:** Hosts the Spring Boot application as a Linux custom container.
 
-\- \*\*Azure Container Registry (ACR):\*\* Stores the versioned Docker image.
+- **Azure Container Registry (ACR):** Stores the versioned Docker image.
 
-\- \*\*GitHub Actions:\*\* Builds and tests the application, then deploys the image through a manually triggered workflow.
+- **GitHub Actions:** Builds and tests the application, then deploys the image through a manually triggered workflow.
 
-\- \*\*Microsoft Entra ID / GitHub OIDC:\*\* Authenticates the deployment workflow without storing an Azure client secret.
+- **Microsoft Entra ID / GitHub OIDC:** Authenticates the deployment workflow without storing an Azure client secret.
 
-\- \*\*Application logs:\*\* App Service logs are used for troubleshooting and deployment verification.
-
-
-
-\## 3. Deployment Workflow
+- **Application logs:** App Service logs are used for troubleshooting and deployment verification.
 
 
 
-1\. Push reviewed source code to the `master` branch.
-
-2\. GitHub Actions runs the automated test suite.
-
-3\. Manually trigger the Azure deployment workflow when the build is green.
-
-4\. The workflow authenticates to Azure using OpenID Connect.
-
-5\. Build the Docker image and push it to ACR.
-
-6\. Configure App Service to use the new image and restart the application.
-
-7\. Verify that the health endpoint or `GET /api/tickets` responds successfully.
+## 3. Deployment Workflow
 
 
 
-\## 4. Required Configuration
+1. Push reviewed source code to the `master` branch.
+
+2. GitHub Actions runs the automated test suite.
+
+3. Manually trigger the Azure deployment workflow when the build is green.
+
+4. The workflow authenticates to Azure using OpenID Connect.
+
+5. Build the Docker image and push it to ACR.
+
+6. Configure App Service to use the new image and restart the application.
+
+7. Verify that the health endpoint or `GET /api/tickets` responds successfully.
+
+
+
+## 4. Required Configuration
 
 
 
@@ -54,17 +54,17 @@ Configure these GitHub repository settings without committing credentials:
 
 
 
-\*\*Repository secrets\*\*
+**Repository secrets**
 
-\- `AZURE\_CLIENT\_ID`
+- `AZURE_CLIENT_ID`
 
-\- `AZURE\_TENANT\_ID`
+- `AZURE_TENANT_ID`
 
-\- `AZURE\_SUBSCRIPTION\_ID`
+- `AZURE_SUBSCRIPTION_ID`
 
 
 
-\*\*Repository variables\*\*
+**Repository variables**
 
 
 
@@ -76,7 +76,7 @@ Configure a federated identity credential in Microsoft Entra ID for the GitHub r
 
 
 
-\## 5. Persistence and Limitations
+## 5. Persistence and Limitations
 
 
 
@@ -88,27 +88,28 @@ For a production deployment, use Azure Database for PostgreSQL or another suppor
 
 
 
-\## 6. Security and Operational Checks
+## 6. Security and Operational Checks
 
 
 
-\- Keep secrets and credentials out of Git.
+- Keep secrets and credentials out of Git.
 
-\- Use GitHub OIDC instead of a long-lived Azure client secret.
+- Use GitHub OIDC instead of a long-lived Azure client secret.
 
-\- Restrict deployment permissions and protect the deployment branch.
+- Restrict deployment permissions and protect the deployment branch.
 
-\- Review application and platform logs after deployment.
+- Review application and platform logs after deployment.
 
-\- Verify ticket creation, duplicate-ID rejection, invalid-input handling, and human approval.
+- Verify ticket creation, duplicate-ID rejection, invalid-input handling, and human approval.
 
-\- Do not enable real email sending without an explicit requirement and appropriate authorization.
+- Do not enable real email sending without an explicit requirement and appropriate authorization.
 
 
 
-\## 7. Deployment Status
+## 7. Deployment Status
 
 
 
 The Docker image and GitHub Actions workflow are available. The Azure workflow is manually triggered. A live Azure deployment is optional for this assignment and should only be marked complete after it has actually been deployed and verified.
+
 
